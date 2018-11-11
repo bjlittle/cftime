@@ -39,13 +39,14 @@ before_install:
 install:
   # Install cftime.
   - echo "Installing cftime..."
+  - python setup.py --cython-coverage build_ext --inplace
   - pip install -e .
 
 script:
   - if [[ "${BUILD_DOCS}" == "true" ]]; then
       pushd docs && make html linkcheck O=-W && popd;
     else
-      py.test -vv;
+      coverage run -m pytest;
     fi;
 
 after_success:
