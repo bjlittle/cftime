@@ -46,11 +46,13 @@ script:
   - if [[ "${BUILD_DOCS}" == "true" ]]; then
       pushd docs && make html linkcheck O=-W && popd;
     else
-      pytest;
+      pytest -v;
     fi;
 
 after_success:
-  - coveralls
+  - if [[ "${BUILD_DOCS}" != "true" ]]; then
+      coveralls;
+    fi;
 
 before_deploy:
   # Remove unused, unminified javascript from sphinx
