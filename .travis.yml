@@ -46,7 +46,6 @@ script:
   - if [[ "${BUILD_DOCS}" == "true" ]]; then
       pushd docs && make html linkcheck O=-W && popd;
     else
-#      coverage run -m pytest;
       pytest;
     fi;
 
