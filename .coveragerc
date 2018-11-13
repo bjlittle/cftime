@@ -5,7 +5,8 @@
 [run]
 branch = True
 plugins = Cython.Coverage
-include = cftime/*
+include =
+    cftime/*
 omit = 
     setup.py
     docs/*
