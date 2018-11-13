@@ -47,7 +47,7 @@ script:
       pushd docs && make html linkcheck O=-W && popd;
     else
 #      coverage run -m pytest;
-      pytest
+      pytest;
     fi;
 
 after_success:
