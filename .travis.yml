@@ -51,9 +51,7 @@ script:
     fi;
 
 after_success:
-  - if [[ "${BUILD_DOCS}" != "true" ]]; then
-      coveralls;
-    fi
+  - coveralls
 
 before_deploy:
   # Remove unused, unminified javascript from sphinx
